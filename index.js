@@ -25,6 +25,9 @@ app.get('/is-today-holiday', (req,res)=> {
     
     const hoje = new Date();
     console.log(hoje.toLocaleDateString());
+    for (let i=0; i<holidays.length; i++){
+        
+    }
 })
 
-app.listen(5001);
+app.listen(5000);
