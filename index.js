@@ -1,7 +1,8 @@
 import express from "express";
-import res from "express/lib/response";
 
-const app = express()
+const app = express();
+
+
 const holidays = [
     { date: "1/1/2022", name: "Confraternização mundial" },
     { date: "1/3/2022", name: "Carnaval" },
@@ -25,3 +26,5 @@ app.get('/is-today-holiday', (req,res)=> {
     const hoje = new Date();
     console.log(hoje.toLocaleDateString());
 })
+
+app.listen(5001);
