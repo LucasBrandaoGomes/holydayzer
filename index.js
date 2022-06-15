@@ -27,13 +27,14 @@ app.get('/is-today-holiday', (req,res)=> {
     const hoje = new Date();
     //const hojeStr = hoje.toLocaleDateString() 
     const hojeStr ="4/21/2022" //para fins de teste, pode mudar a data aqui
+    let eFeriado;
     for (let i=0; i<holidays.length; i++){
         if (holidays[i].date.includes(hojeStr)){
-            res.send(chalk.green("HOJE É FERIADOOOOO!"));
-        }else{
-            res.send(chalk.red("Hoje não é feriado, infelizmente"));
+            res.send(chalk.green(`HOJE É FERIADOOOOO! Dia de ${holidays[i].name}`));
         }
     }
-})
+    res.send(chalk.red("Hoje não é feriado, infelizmente"));
+    }
+)
 
 app.listen(5000, () => console.log('server running - port 5000'));
