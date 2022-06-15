@@ -1,4 +1,5 @@
 import express from "express";
+import chalk from "chalk";
 
 const app = express();
 
@@ -24,10 +25,15 @@ app.get('/holidays', (req, res)=> {
 app.get('/is-today-holiday', (req,res)=> {
     
     const hoje = new Date();
-    console.log(hoje.toLocaleDateString());
+    //const hojeStr = hoje.toLocaleDateString() 
+    const hojeStr ="4/21/2022" //para fins de teste, pode mudar a data aqui
     for (let i=0; i<holidays.length; i++){
-        
+        if (holidays[i].date.includes(hojeStr)){
+            res.send(chalk.green("HOJE É FERIADOOOOO!"));
+        }else{
+            res.send(chalk.red("Hoje não é feriado, infelizmente"));
+        }
     }
 })
 
-app.listen(5000);
+app.listen(5000, () => console.log('server running - port 5000'));
